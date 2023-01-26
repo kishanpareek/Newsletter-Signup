@@ -6,6 +6,8 @@ const  requestModule = require("request");
 
 const app = express();
 
+const apikey = process.env.MAILCHIMP_API_KEY;
+
 const https = require("https");
 
 app.use(express.static("public"));
@@ -47,7 +49,7 @@ app.post("/", function(req, res){
   const url = "https://us13.api.mailchimp.com/3.0/lists/28102cdfbc";
   const options = {
     method: "POST",
-    auth: "kishan:35b3bf44ba2f4f6875f9ec66e583d50c-us13"
+    auth: "kishan:apikey"
   }
   const request = https.request(url, options, function(response) {
       if (response.statusCode >= 200 && response.statusCode < 300) {
