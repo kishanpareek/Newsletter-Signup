@@ -53,7 +53,7 @@ app.post("/", function(req, res){
   const apikey = process.env.MAILCHIMP_API_KEY;
   const options = {
     method: "POST",
-    auth: "kishan:apikey"
+    auth: "apikey:apikey"
   }
   const request = https.request(url, options, function(response) {
       if (response.statusCode >= 200 && response.statusCode < 300) {
