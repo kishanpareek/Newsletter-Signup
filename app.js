@@ -6,11 +6,11 @@ const  requestModule = require("request");
 
 const app = express();
 
-const apikey = process.env.MAILCHIMP_API_KEY;
+
 
 const https = require("https");
 
-const dotEnv = require('dotenv').config();
+ require('dotenv').config();
 
 
 app.use(express.static("public"));
@@ -50,7 +50,7 @@ app.post("/", function(req, res){
 
   var jsonData = JSON.stringify(data);
   const url = "https://us13.api.mailchimp.com/3.0/lists/28102cdfbc";
-  const apikey = dotEnv.process.env.MAILCHIMP_API_KEY;
+  const apikey = process.env.MAILCHIMP_API_KEY;
   const options = {
     method: "POST",
     auth: "kishan:apikey"
