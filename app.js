@@ -6,6 +6,8 @@ const  requestModule = require("request");
 
 const app = express();
 
+const apikey = process.env.MAILCHIMP_API_KEY;
+
 const https = require("https");
 
 const dotEnv = require('dotenv').config();
