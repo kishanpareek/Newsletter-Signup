@@ -8,6 +8,9 @@ const app = express();
 
 const https = require("https");
 
+const dotEnv = require('dotenv').config();
+
+
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,9 +48,10 @@ app.post("/", function(req, res){
 
   var jsonData = JSON.stringify(data);
   const url = "https://us13.api.mailchimp.com/3.0/lists/28102cdfbc";
+  const apikey = dotEnv.process.env.MAILCHIMP_API_KEY;
   const options = {
     method: "POST",
-    auth: "kishan:c21d63a09047315a56bde13b3cf3f723-us14"
+    auth: "kishan:apikey"
   }
   const request = https.request(url, options, function(response) {
       if (response.statusCode >= 200 && response.statusCode < 300) {
